@@ -1,37 +1,106 @@
-## Library Management Program Description
+# Library Loan System in C++
 
-The task involved creating a C++ program to manage a library system, allowing users to enter personal data, borrow books, extend loan periods, return books, and view data. The program is designed to efficiently handle these tasks while providing a user-friendly interface.
+This project implements a simple console-based Library Loan System in C++. It allows users to manage personal information, borrow books, extend the loan period, and return books. The system uses classes such as `Person`, `Book`, `Date`, and `Loan` to model the borrowing process in a library setting.
 
-### Program Features
+## Features
 
-- **Personal Data Entry**: Users can input personal data, including first name, surname, street, house number, postal code, and city. This data is stored for future reference.
+- **Person Management**: Enter and display personal details including name, address, and postal information.
+- **Book Management**: Choose from a pre-defined set of books to borrow.
+- **Loan Management**:
+  - Borrow a book.
+  - Extend the loan by one month.
+  - Display the current loan details.
+  - Return the borrowed book.
 
-- **Book Borrowing**: Users can borrow books from the library. If the borrower has already borrowed a book, the program alerts them accordingly. Users can select from a list of available books and specify the return date.
+## Classes
 
-- **Loan Extension**: If a user has borrowed a book, they can extend the loan period by one month.
+### `Person`
+Represents a person with personal information such as:
+- First Name
+- Surname
+- Street Address
+- House Number
+- Postal Code
+- City
 
-- **Data Display**: Users can view their personal data and details of any books they have borrowed, including the return date.
+#### Methods:
+- `enterData()` – Enter personal details from the user.
+- `showData()` – Display the stored personal details.
 
-- **Book Return**: Users can return borrowed books to the library.
+### `Book`
+Represents a book with a title and author.
 
-- **Menu Interface**: The program features a menu-driven interface that guides users through the available options and provides feedback on their selections. Users can easily navigate between different functionalities using the menu.
+#### Methods:
+- `showData()` – Display the book’s title and author.
 
-- **Error Handling**: The program includes error handling to handle incorrect user inputs and provide appropriate feedback.
+### `Date`
+Represents a date consisting of day, month, and year.
 
-### Technical Implementation
+#### Methods:
+- `enterDate()` – Input a date from the user.
+- `showData()` – Display the date in the format `DD.MM.YYYY`.
+- `incrementByOneMonth()` – Increases the date by one month, adjusting for year transitions and month lengths.
 
-- **Classes**: The program utilizes several classes to represent entities such as Person, Book, and Loan. These classes encapsulate relevant data and functionalities related to their respective entities, promoting code organization and maintainability.
+### `Loan`
+Represents a loan with:
+- A `Person` object as the borrower.
+- A `Book` object as the borrowed book.
+- A `Date` object as the return date.
+- A flag to track whether a book has been borrowed or not.
 
-- **Dynamic Memory Management**: The program dynamically manages memory allocation to store user data and book information. This approach ensures efficient memory usage and scalability, allowing the program to handle a variable number of users and books.
+#### Methods:
+- `enterData()` – Enter loan details by providing a `Person`, `Book`, and `Date`.
+- `showData()` – Display loan details including the borrower, borrowed book, and return date.
+- `extend()` – Extend the loan period by one month.
+- `giveBack()` – Mark the book as returned.
+- `get_has_book()` – Check if a person currently has a book on loan.
 
-- **User Interaction**: The program interacts with users through the command-line interface, displaying prompts, menus, and messages to guide users through various actions and provide feedback on their inputs.
+## Menu Options
 
-- **Modular Design**: The program is modularly designed, with distinct functions and classes responsible for specific tasks. This modular design facilitates code readability, reusability, and maintenance.
+Once the program starts, the user is presented with a menu:
+1. **Enter Personal Data** – Enter or update the borrower's personal information.
+2. **Borrow Book** – Borrow one of three available books and set a return date.
+3. **Extend Loan** – Extend the return date by one month.
+4. **Show Data** – Display the personal and loan details.
+5. **Return Book** – Mark the book as returned.
+0. **Exit** – Exit the program.
 
-- **Looping Structure**: The program features a loop that continuously prompts users for input and executes the corresponding functionality based on their selections. This looping structure allows users to perform multiple actions within a single session until they choose to exit the program.
+## How to Run
 
-- **System Integration**: The program integrates system commands (e.g., `system("pause")`, `system("cls")`) to enhance user experience by pausing execution and clearing the console screen when necessary.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/LibraryLoanSystem.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd LibraryLoanSystem
+   ```
+3. Compile the C++ code using a C++ compiler such as `g++`:
+   ```bash
+   g++ -o library_loan_system library_loan_system.cpp
+   ```
+4. Run the compiled program:
+   ```bash
+   ./library_loan_system
+   ```
 
-### Conclusion
+## Example Usage
 
-Overall, the library management program provides a comprehensive solution for managing library operations, including user data entry, book borrowing, loan extension, book return, and data display. With its user-friendly interface and efficient functionality, the program facilitates seamless interaction between users and the library system.
+1. Enter personal details for the borrower.
+2. Borrow one of the available books.
+3. Extend the loan period if necessary.
+4. Return the book to the library.
+
+## Dependencies
+
+- C++ Standard Library
+
+## Future Enhancements
+
+- Add more books and allow dynamic input for book details.
+- Include a database to store loan records persistently.
+- Implement more advanced error handling.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
