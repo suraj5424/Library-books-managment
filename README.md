@@ -1,4 +1,4 @@
-# Library Loan System in C++
+# Library books System in C++
 
 This project implements a simple console-based Library Loan System in C++. It allows users to manage personal information, borrow books, extend the loan period, and return books. The system uses classes such as `Person`, `Book`, `Date`, and `Loan` to model the borrowing process in a library setting.
 
